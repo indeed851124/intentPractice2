@@ -1,5 +1,6 @@
 package com.cnc.intentpractice
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.cnc.intentpractice.databinding.ActivityMainBinding
@@ -15,5 +16,10 @@ class MainActivity : AppCompatActivity() {
 
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.moveToOtherBtn.setOnClickListener {
+            val myIntent = Intent(this,otherActivity::class.java)
+            startActivity(myIntent)
+        }
     }
 }
