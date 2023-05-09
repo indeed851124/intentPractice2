@@ -17,6 +17,13 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.sendMessageBtn.setOnClickListener {
+            val inputMassage = binding.messageEdt.text.toString()
+            val myIntent = Intent(this, messageActivity::class.java)
+            myIntent.putExtra("message", inputMassage)
+            startActivity(myIntent)
+        }
+
         binding.moveToOtherBtn.setOnClickListener {
             val myIntent = Intent(this,otherActivity::class.java)
             startActivity(myIntent)
