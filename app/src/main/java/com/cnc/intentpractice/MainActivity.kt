@@ -35,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.callBtn.setOnClickListener {
+            val inputPhoneNum = binding.phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
+            startActivity(myIntent)
+        }
+
         binding.dialBtn.setOnClickListener {
             val inputPhoneNum = binding.phoneNumEdt.text.toString()
             val myUri = Uri.parse("tel:${inputPhoneNum}")
