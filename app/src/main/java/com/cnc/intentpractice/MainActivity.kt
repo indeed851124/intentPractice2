@@ -35,6 +35,18 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.naverWebBtn.setOnClickListener {
+            val myUri = Uri.parse("https://www.naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        binding.kakaoStoreBtn.setOnClickListener {
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
         binding.smsBtn.setOnClickListener {
             val inputPhoneNum = binding.phoneNumEdt.text.toString()
             val myUri = Uri.parse("smsto:${inputPhoneNum}")
