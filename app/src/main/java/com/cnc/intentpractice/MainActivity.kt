@@ -2,6 +2,7 @@ package com.cnc.intentpractice
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
@@ -33,6 +34,13 @@ class MainActivity : AppCompatActivity() {
 
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.dialBtn.setOnClickListener {
+            val inputPhoneNum = binding.phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+            startActivity(myIntent)
+        }
 
         binding.sendMessageBtn.setOnClickListener {
             val inputMassage = binding.messageEdt.text.toString()
